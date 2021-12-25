@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import Image from 'next/image'
+import Script from 'next/script'
 
 export default function Home() {
   return (
@@ -8,11 +11,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Script
+        src="https://connect.facebook.net/en_US/sdk.js"
+        strategy="lazyOnload"
+        onLoad={() =>
+          console.log(`script loaded correctly, window.FB has been populated`)
+        }
+      />
+
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome222 to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
+        <h1 className="title">
+          LLLL{' '}
+          <Link href="/posts/first-post">
+            <a>common</a>
+          </Link>
+        </h1>
+        
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
@@ -47,6 +65,14 @@ export default function Home() {
           </a>
         </div>
       </main>
+
+      <img src="/images/profile.jpg" alt="Your Name" />
+      <Image
+        src="/images/profile.jpg"
+        height={144}
+        width={144}
+        alt='test'
+      />
 
       <footer>
         <a
